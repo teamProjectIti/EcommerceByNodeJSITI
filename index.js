@@ -26,9 +26,7 @@ var io=socket(server,{
  })
 app.use(cors())
 mongoose.connect("mongodb://localhost:27017/Ecommerce",()=>{
-
   console.log("conected to db")
-
 })
  
 // const todoRoute=require("./routes/todoRoute");
