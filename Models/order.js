@@ -19,7 +19,7 @@ const orderSchema=mongoose.Schema({
       },
        SellerId: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "seller",
+        ref: "user",
         required: true,
       },
       productId: {
