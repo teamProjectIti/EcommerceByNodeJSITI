@@ -27,7 +27,11 @@ const userSchema=mongoose.Schema({
     City:{
         type:String,
         required:true,
-    },
+    }, 
+    products: [{
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "product",
+       }],
 });
 
 

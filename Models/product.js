@@ -36,6 +36,10 @@ const productSchema=mongoose.Schema({
         ref: "seller",
         required: true,
       },
+       Users: [{
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "user",
+       }],
 });
 var productModel=mongoose.model("product",productSchema);
 module.exports=productModel;
