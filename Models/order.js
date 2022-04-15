@@ -12,11 +12,6 @@ const orderSchema=mongoose.Schema({
         type:Date,
         default:Date.now
     },
-    SellerId: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "seller",
-        required: true,
-      },
        USerId: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: "user",
