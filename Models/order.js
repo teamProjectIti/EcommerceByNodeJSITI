@@ -17,16 +17,16 @@ const orderSchema=mongoose.Schema({
         ref: "seller",
         required: true,
       },
-       SellerId: {
+       USerId: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: "user",
         required: true,
       },
-      productId: {
+      products: [{
         type: mongoose.SchemaTypes.ObjectId,
         ref: "product",
         required: true,
-      },
+      }],
 });
 
 let orderModel=mongoose.model("order",orderSchema);

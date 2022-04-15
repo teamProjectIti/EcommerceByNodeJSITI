@@ -37,6 +37,5 @@ const productSchema=mongoose.Schema({
         required: true,
       },
 });
-
 var productModel=mongoose.model("product",productSchema);
 module.exports=productModel;
