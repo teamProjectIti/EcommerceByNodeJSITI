@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const orderSchema=mongoose.Schema({
      
     Totalprice:{
-        type:number,
+        type:Number,
         required:[true,'must be enter price'],
     }, 
      

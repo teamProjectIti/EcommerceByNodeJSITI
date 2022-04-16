@@ -3,44 +3,45 @@ const fs = require("fs");
 var app = express();
 const cors=require("cors");
 const mongoose=require("mongoose");
-// const userModel= require("./models/users")
-const http=require("http")
-const socket=require("socket.io")
+ const userModel= require("./models/user")
+ const sellerModel= require("./models/seller")
+ const orderModel= require("./models/order")
+ const productModel= require("./models/product")
+
+// const http=require("http")
+// const socket=require("socket.io")
 
 
-var server =http.createServer(app)
-var io=socket(server,{
-  cors:{
-    origin:"*"
-  }
-})
+// var server =http.createServer(app)
+// var io=socket(server,{
+//   cors:{
+//     origin:"*"
+//   }
+// })
 
- io.on("connection",()=>{
-   console.log("connection established")
- })
- app.use(express.json()); //middleware
- app.post("/",(req,res)=>{
-       
-  io.emit("new_data",req.body)
-
- })
-app.use(cors())
+//  io.on("connection",()=>{
+//    console.log("connection established")
+//  })
 mongoose.connect("mongodb://localhost:27017/Ecommerce",()=>{
   console.log("conected to db")
 })
+
+ app.use(express.json()); //middleware
+
+//  app.post("/",(req,res)=>{
+       
+//   io.emit("new_data",req.body)
+
+//  })
+// app.use(cors())
+
  
-// const todoRoute=require("./routes/todoRoute");
-// const userRoute=require("./routes/userRoute");
 
-// app.use(express.static("./static"))
 
-// app.use("/userRoute",userRoute);
-// app.use("/todoRoute",todoRoute);
+// app.use("*",(req, res, next) =>{
 
-app.use("*",(req, res, next) =>{
-
-  res.status(404).end()
-})
+//   res.status(404).end()
+// })
 
 // app.set("view engine","ejs")
 // app.set("views",'./views')
@@ -50,6 +51,11 @@ app.use("*",(req, res, next) =>{
 //  return res.status(500).end()
 
 // })
-server.listen(4000, () => {
+app.listen(4000, () => {
   console.log("app started listening on port 4000");
 });
+const sellerRoutes=require("./routes/seller");
+// const UserRoutes=require("./routes/userRoute");
+// app.use("/users",UserRoutes);
+
+app.use("/seller",sellerRoutes);

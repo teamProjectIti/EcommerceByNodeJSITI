@@ -20,11 +20,11 @@ const productSchema=mongoose.Schema({
         required:true,
     },
     price:{
-        type:number,
+        type:Number,
         required:[true,'must be enter price'],
     }, 
     quantity:{
-        type:number,
+        type:Number,
         required:[true,'must be enter quantity'],
     },
     createdAt:{
