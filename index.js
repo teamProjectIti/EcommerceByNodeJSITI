@@ -3,10 +3,10 @@ const fs = require("fs");
 var app = express();
 const cors=require("cors");
 const mongoose=require("mongoose");
- const userModel= require("./models/user")
- const sellerModel= require("./models/seller")
- const orderModel= require("./models/order")
- const productModel= require("./models/product")
+ const userModel= require("./Models/user")
+ const sellerModel= require("./Models/seller")
+ const orderModel= require("./Models/order")
+ const productModel= require("./Models/product")
 
 // const http=require("http")
 // const socket=require("socket.io")
@@ -55,7 +55,9 @@ app.listen(4000, () => {
   console.log("app started listening on port 4000");
 });
 const sellerRoutes=require("./routes/seller");
+const ProductRoutes=require("./routes/ProductRout");
 // const UserRoutes=require("./routes/userRoute");
 // app.use("/users",UserRoutes);
 
 app.use("/seller",sellerRoutes);
+app.use("/product",ProductRoutes);
