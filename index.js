@@ -22,7 +22,7 @@ const mongoose=require("mongoose");
 //  io.on("connection",()=>{
 //    console.log("connection established")
 //  })
-mongoose.connect("mongodb://localhost:27017/Ecommerce",()=>{
+mongoose.connect("mongodb://localhost:27017/Ecommerce2",()=>{
   console.log("conected to db")
 })
 
@@ -54,10 +54,13 @@ mongoose.connect("mongodb://localhost:27017/Ecommerce",()=>{
 app.listen(4000, () => {
   console.log("app started listening on port 4000");
 });
-const sellerRoutes=require("./routes/seller");
+const sellerRoutes=require("./routes/sellerRout");
 const ProductRoutes=require("./routes/ProductRout");
+const orderRoute=require("./routes/orderRoute");
+
 // const UserRoutes=require("./routes/userRoute");
 // app.use("/users",UserRoutes);
 
 app.use("/seller",sellerRoutes);
 app.use("/product",ProductRoutes);
+app.use("/orderRoute",orderRoute);

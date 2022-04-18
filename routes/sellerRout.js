@@ -12,7 +12,7 @@ const {
     deleteseller
     
    
-  } = require("../controllers/seller");
+  } = require("../controllers/sellerController.js");
 
 
   router.get("/",async(req,res,next)=>{
